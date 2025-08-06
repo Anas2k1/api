@@ -33,6 +33,7 @@ function App() {
               <input type="password" name="password" />
             </div>
             <button type="submit">Login</button>
+            <button type="button" style={{ marginLeft: '10px' }}>Register</button>
           </form>
         </div>
       ) : (
