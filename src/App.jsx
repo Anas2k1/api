@@ -12,9 +12,13 @@ function App() {
   }, []);
 
   return (
-    
     <div>
-      
+      <nav className="navbar">
+        <a href="#" className="nav-link">Home</a>
+        <a href="#" className="nav-link">Wishlist</a>
+        <a href="#" className="nav-link">Visited List</a>
+        <a href="#" className="nav-link" style={{ marginLeft: 'auto' }}>Login</a>
+      </nav>
       <h1>Country List</h1>
       <div className="country-row">
         {countries.map((country, idx) => (
@@ -26,6 +30,7 @@ function App() {
           </div>
         ))}
       </div>
+  );
     </div>
   );
 }
