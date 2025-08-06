@@ -5,6 +5,7 @@ import './App.css';
 function App() {
   const [countries, setCountries] = useState([]);
   const [showLogin, setShowLogin] = useState(false);
+  const [showRegister, setShowRegister] = useState(false);
 
   useEffect(() => {
     fetch('https://restcountries.com/v3.1/all?fields=name,flags')
@@ -20,7 +21,27 @@ function App() {
         <a href="#" className="nav-link">Visited List</a>
         <a href="#" className="nav-link" style={{ marginLeft: 'auto' }} onClick={() => setShowLogin(true)}>Login</a>
       </nav>
-      {showLogin ? (
+      {showRegister ? (
+        <div className="register-page">
+          <h2>Register</h2>
+          <form className="register-form">
+            <div>
+              <label>Name: </label>
+              <input type="text" name="name" />
+            </div>
+            <div>
+              <label>Email: </label>
+              <input type="email" name="email" />
+            </div>
+            <div>
+              <label>Password: </label>
+              <input type="password" name="password" />
+            </div>
+            <button type="submit">Register</button>
+            <button type="button" style={{ marginLeft: '10px' }} onClick={() => { setShowRegister(false); setShowLogin(true); }}>Back to Login</button>
+          </form>
+        </div>
+      ) : showLogin ? (
         <div className="login-page">
           <h2>Login</h2>
           <form className="login-form">
@@ -33,7 +54,7 @@ function App() {
               <input type="password" name="password" />
             </div>
             <button type="submit">Login</button>
-            <button type="button" style={{ marginLeft: '10px' }}>Register</button>
+            <button type="button" style={{ marginLeft: '10px' }} onClick={() => { setShowLogin(false); setShowRegister(true); }}>Register</button>
           </form>
         </div>
       ) : (
